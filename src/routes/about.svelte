@@ -1,50 +1,105 @@
 <script context="module">
 	import { browser, dev } from '$app/env';
 
-	// we don't need any JS on this page, though we'll load
-	// it in dev so that we get hot module replacement...
-	export const hydrate = dev;
+  // we don't need any JS on this page, though we'll load
+  // it in dev so that we get hot module replacement...
+  export const hydrate = dev;
 
-	// ...but if the client-side router is already loaded
-	// (i.e. we came here from elsewhere in the app), use it
-	export const router = browser;
+  // ...but if the client-side router is already loaded
+  // (i.e. we came here from elsewhere in the app), use it
+  export const router = browser;
 
-	// since there's no dynamic data here, we can prerender
-	// it so that it gets served as a static asset in prod
-	export const prerender = true;
+  // since there's no dynamic data here, we can prerender
+  // it so that it gets served as a static asset in prod
+  export const prerender = true;
 </script>
 
-<svelte:head>
-	<title>About</title>
-</svelte:head>
 
-<div class="content">
-	<h1>About this app</h1>
+<h1>About Rap Quotes</h1>
+<p>
+  This is a hard-coded mock up for the <em>Same App, Different Framework</em> project.
+  SADF aims to recreate the same app using different frameworks (Angular, React, Vue, etc, etc) in
+  order to
+  compare and learn each framework.
+</p>
 
-	<p>
-		This is a <a href="https://kit.svelte.dev">SvelteKit</a> app. You can make your own by typing the
-		following into your command line and following the prompts:
-	</p>
+<p>
+  Rap Quotes is the skeleton for that common app in the project.
+  It was created here by hand just to work through all the desired CSS and
+  HTML <em>before</em> attempting to
+  recreate the concept in other frameworks.
+</p>
 
-	<!-- TODO lose the @next! -->
-	<pre>npm init svelte@next</pre>
+<p>
+  The app simply displays a select few of dope rap bars from various rappers.
+  Nothing too fancy, but robust enough to serve as more than a simple Hello, World app.
+</p>
 
-	<p>
-		The page you're looking at is purely static HTML, with no client-side interactivity needed.
-		Because of that, we don't need to load any JavaScript. Try viewing the page's source, or opening
-		the devtools network panel and reloading.
-	</p>
+<h2>Features</h2>
 
-	<p>
-		The <a href="/todos">TODOs</a> page illustrates SvelteKit's data loading and form handling. Try using
-		it with JavaScript disabled!
-	</p>
-</div>
+<p>
+  In order to serve as a good app, this app aims to use the following features that are commonly seen
+  during
+  web app development.
+</p>
 
-<style>
-	.content {
-		width: 100%;
-		max-width: var(--column-width);
-		margin: var(--column-margin-top) auto 0 auto;
-	}
-</style>
+<ul class="no-bullets">
+  <li>
+    <input checked disabled type="checkbox" />
+    &nbsp;
+    <strong>CRUD</strong>: the big four verbs can be applied to each quote in each framework
+  </li>
+  <li>
+    <input checked disabled type="checkbox" />
+    &nbsp;
+    <strong>https calls</strong>:
+  </li>
+  <li>
+    <input checked disabled type="checkbox" />
+    &nbsp;
+    <strong>form validation</strong>: creating a quote requires a form
+  </li>
+  <li>
+    <input checked disabled type="checkbox" />
+    &nbsp;
+    <strong>modal</strong>: the create form is displayed in a modal
+  </li>
+  <li>
+    <input disabled type="checkbox" />
+    &nbsp;
+    <strong>toast</strong>: on success/fail of CRUD ops
+  </li>
+  <li>
+    <input disabled type="checkbox" />
+    &nbsp;
+    <strong>sortable/filterable table</strong>: perhaps a table view of all the quotes?
+  </li>
+  <li>
+    <input disabled type="checkbox" />
+    &nbsp;
+    <strong>grid/table view switcher</strong></li>
+  <li>
+    <input disabled type="checkbox" />
+    &nbsp;
+    <strong>routing/nav</strong>: main page, table view, about page
+  </li>
+  <li>
+    <input disabled type="checkbox" />
+    &nbsp;
+    <strong>testing</strong></li>
+  <li>
+    <input disabled type="checkbox" />
+    &nbsp;
+    <strong>search</strong>: query all the quotes
+  </li>
+  <li>
+    <input disabled type="checkbox" />
+    &nbsp;
+    <strong>date picker</strong>:
+  </li>
+  <li>
+    <input disabled type="checkbox" />
+    &nbsp;
+    <strong>localization</strong>: this may actually be difficult with slang in quotes 🤔
+  </li>
+</ul>

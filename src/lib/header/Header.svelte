@@ -1,7 +1,6 @@
 <script lang="ts">
 </script>
 
-
 <header>
   <nav>
     <ul>
@@ -9,10 +8,10 @@
         <button>Create quote</button>
       </li>
       <li>
-        <a>All quotes</a>
+        <a sveltekit:prefetch href="/">All quotes</a>
       </li>
       <li>
-        <a>About</a>
+        <a sveltekit:prefetch href="/about">About</a>
       </li>
     </ul>
   </nav>
