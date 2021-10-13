@@ -1,11 +1,14 @@
 <script lang="ts">
+  import { createEventDispatcher } from "svelte";
+
+  const dispatcher = createEventDispatcher();
 </script>
 
 <header>
   <nav>
     <ul>
       <li>
-        <button>Create quote</button>
+        <button on:click|preventDefault={() => dispatcher('createClicked')}>Create quote</button>
       </li>
       <li>
         <a sveltekit:prefetch href="/">All quotes</a>

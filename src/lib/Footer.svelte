@@ -1,5 +1,5 @@
 <footer>
-  <ul className="no-bullets">
+  <ul class="no-bullets">
     <li>
       <a href="https://github.com/sameappdiffframework" target="_blank" rel="noreferrer">
         Same App, Different Framework

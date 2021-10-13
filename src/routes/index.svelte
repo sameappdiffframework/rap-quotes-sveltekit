@@ -23,11 +23,33 @@
 </script>
 
 <script lang="ts">
+  import Header from "$lib/Header.svelte";
+  import ModalContainer from "$lib/modal/ModalContainer.svelte";
+  import CreateQuoteForm from "$lib/quotes/CreateQuoteForm.svelte";
   import type { QuoteModel } from "$lib/quotes/QuoteModel";
   import QuoteWall from "$lib/quotes/QuoteWall.svelte";
+
   export let quotes: QuoteModel[];
+  let isModalOpen: boolean = false;
+
+  function showModal() {
+    isModalOpen = true;
+  }
+
+  function hideModal() {
+    isModalOpen = false;
+  }
 </script>
 
-<h1>Rap Quotes</h1>
+<Header on:createClicked={showModal} />
+<main>
+  <h1>Rap Quotes</h1>
 
-<QuoteWall quotes="{quotes}" />
+  <QuoteWall quotes="{quotes}" />
+</main>
+{#if isModalOpen}
+  <ModalContainer>
+    <CreateQuoteForm on:cancel={hideModal} on:submit={({detail}) => console.log('submit', detail)} />
+  </ModalContainer>
+{/if}
+
