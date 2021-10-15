@@ -39,6 +39,11 @@
   function hideModal() {
     isModalOpen = false;
   }
+
+  function createQuote(quote: QuoteModel) {
+    console.log('createQuote', quote);
+    hideModal();
+  }
 </script>
 
 <Header on:createClicked={showModal} />
@@ -49,7 +54,7 @@
 </main>
 {#if isModalOpen}
   <ModalContainer>
-    <CreateQuoteForm on:cancel={hideModal} on:submit={({detail}) => console.log('submit', detail)} />
+    <CreateQuoteForm on:cancel={hideModal} on:submit={({detail}) => createQuote(detail)} />
   </ModalContainer>
 {/if}
 
