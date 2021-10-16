@@ -1,8 +1,8 @@
 <script lang="ts">
-  import Footer from "$lib/Footer.svelte";
+  import App from "$lib/App.svelte";
   import "../app.css";
 </script>
 
-<slot />
-
-<Footer />
+<App>
+  <slot />
+</App>
