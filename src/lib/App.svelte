@@ -3,7 +3,7 @@
   import Header from "$lib/Header.svelte";
   import ModalContainer from "$lib/modal/ModalContainer.svelte";
   import CreateQuoteForm from "$lib/quotes/CreateQuoteForm.svelte";
-  import type { QuoteModel } from "$lib/quotes/QuoteModel";
+  import { QuoteModel, quoteStore } from "$lib/quotes/quote-store";
 
   let isModalOpen: boolean = false;
 
@@ -15,8 +15,8 @@
     isModalOpen = false;
   }
 
-  function createQuote(quote: QuoteModel) {
-    console.log('createQuote', quote);
+  function submitQuote(quote: QuoteModel) {
+    quoteStore.update((oldQuotes => [quote, ...oldQuotes]));
     hideModal();
   }
 </script>
@@ -28,7 +28,7 @@
 <Footer />
 {#if isModalOpen}
   <ModalContainer>
-    <CreateQuoteForm on:cancel={hideModal} on:submit={({detail}) => createQuote(detail)} />
+    <CreateQuoteForm on:cancel={hideModal} on:submit={({detail}) => submitQuote(detail)} />
   </ModalContainer>
 {/if}
 

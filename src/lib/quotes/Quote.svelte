@@ -1,5 +1,5 @@
 <script lang="ts">
-  import type { QuoteModel } from "$lib/quotes/QuoteModel";
+  import type { QuoteModel } from "$lib/quotes/quote-store";
 
   export let quote: QuoteModel;
 </script>
