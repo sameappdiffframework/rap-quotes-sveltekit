@@ -3,8 +3,11 @@
   import Header from "$lib/Header.svelte";
   import ModalContainer from "$lib/modal/ModalContainer.svelte";
   import CreateQuoteForm from "$lib/quotes/CreateQuoteForm.svelte";
-  import { QuoteModel, quoteStore } from "$lib/quotes/quote-store";
-
+  import { quoteStore } from "$lib/quotes/quote-store";
+  import type { QuoteFormInput } from "$lib/quotes/quote-form.utils";
+  import type { QuoteModel } from "$lib/quotes/quote-store";
+  import { v4 as uuid } from 'uuid';
+  
   let isModalOpen: boolean = false;
 
   function showModal() {
@@ -15,7 +18,13 @@
     isModalOpen = false;
   }
 
-  function submitQuote(quote: QuoteModel) {
+  function submitQuote(input: QuoteFormInput) {
+    const quote: QuoteModel = {
+      id: uuid(),
+      quote: input.quote,
+      artist: { name: input.artist },
+      source: { name: input.source }
+    };
     quoteStore.update((oldQuotes => [quote, ...oldQuotes]));
     hideModal();
   }
@@ -23,7 +32,7 @@
 
 <Header on:createClicked={showModal} />
 <main>
-  <slot/>
+  <slot />
 </main>
 <Footer />
 {#if isModalOpen}
